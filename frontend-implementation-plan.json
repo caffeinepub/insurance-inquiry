@@ -1,0 +1,201 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Insurance Inquiry Website with Admin Dashboard - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create multi-type insurance inquiry form with dynamic fields and submission handling",
+      "acceptanceCriteria": [
+        "User can select from Health, Auto, Life, or Home insurance types",
+        "Form fields change dynamically based on selected insurance type",
+        "All required fields are validated before submission",
+        "User sees a success confirmation message after submitting"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/InsuranceInquiryForm.tsx",
+          "operation": "create",
+          "description": "Create insurance inquiry form component with dynamic fields based on selected insurance type (Health, Auto, Life, Home). Include insurance type selector, dynamic field rendering based on type, form validation, and integration with backend submitInsuranceInquiry method. Display success confirmation after submission. Reference generated insurance icons at frontend/public/assets/generated/insurance-icons.dim_512x128.png for insurance type selection UI."
+        },
+        {
+          "path": "frontend/src/pages/InquiryPage.tsx",
+          "operation": "create",
+          "description": "Create inquiry page that renders the InsuranceInquiryForm component. Include page title, description, and the form component. Use the authorization component to ensure users are logged in before submitting inquiries."
+        },
+        {
+          "path": "frontend/src/hooks/useSubmitInsuranceInquiry.ts",
+          "operation": "create",
+          "description": "Create React Query mutation hook for submitting insurance inquiries. Use the backend submitInsuranceInquiry method. Handle success and error states, invalidate relevant queries after successful submission."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create Browse Insurance Plans page displaying filterable plans with CTA buttons",
+      "acceptanceCriteria": [
+        "Plans are filterable or grouped by insurance type (Health, Auto, Life, Home)",
+        "Each plan card displays plan name, coverage highlights, and a CTA button",
+        "Clicking the CTA button pre-fills the inquiry form with the selected plan and insurance type"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PlansPage.tsx",
+          "operation": "create",
+          "description": "Create plans browsing page that displays insurance plans grouped or filtered by type. Include insurance type filter/tabs, plan cards grid, and navigation to inquiry form with pre-filled data. Use generated insurance icons at frontend/public/assets/generated/insurance-icons.dim_512x128.png for type filtering UI."
+        },
+        {
+          "path": "frontend/src/components/PlanCard.tsx",
+          "operation": "create",
+          "description": "Create plan card component displaying plan name, insurance type, coverage highlights (features array), and CTA button. Button should navigate to inquiry page with plan and type pre-selected via URL parameters or state."
+        },
+        {
+          "path": "frontend/src/hooks/useInsurancePlans.ts",
+          "operation": "create",
+          "description": "Create React Query hook for fetching insurance plans using backend getAllInsurancePlans and getInsurancePlansByType methods. Support filtering by insurance type."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create Contact an Agent section with agent info and message form",
+      "acceptanceCriteria": [
+        "Agent contact information is displayed (name, specialization, contact details)",
+        "Contact form includes fields for user name, email, subject, and message",
+        "User sees a confirmation message after submitting the contact form"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create contact page displaying agent information (fetched from backend) and contact message form. Include agent cards showing name, specialization, phone, and email. Render contact form below agent listings. Use the authorization component to ensure users are logged in before sending messages."
+        },
+        {
+          "path": "frontend/src/components/AgentCard.tsx",
+          "operation": "create",
+          "description": "Create agent card component displaying agent name, specialization (insurance types), phone, and email. Include visual styling that conveys professionalism and trust."
+        },
+        {
+          "path": "frontend/src/components/ContactMessageForm.tsx",
+          "operation": "create",
+          "description": "Create contact message form component with agent selector, subject, and message fields. User name and email should be auto-filled from user profile. Integrate with backend sendMessageToAgent method. Display success confirmation after submission."
+        },
+        {
+          "path": "frontend/src/hooks/useAgents.ts",
+          "operation": "create",
+          "description": "Create React Query hook for fetching agents using backend getAllAgents method."
+        },
+        {
+          "path": "frontend/src/hooks/useSendMessage.ts",
+          "operation": "create",
+          "description": "Create React Query mutation hook for sending contact messages using backend sendMessageToAgent method. Handle success and error states."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Create Admin Dashboard with inquiry and message management",
+      "acceptanceCriteria": [
+        "Dashboard displays all submitted inquiries with key details (name, type, date, status)",
+        "Dashboard displays all contact messages",
+        "Admin can filter inquiries by insurance type and status",
+        "Admin can click an inquiry to view full details",
+        "Admin can update the status of an inquiry (Pending, In Review, Resolved)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminDashboardPage.tsx",
+          "operation": "create",
+          "description": "Create admin dashboard page displaying all insurance inquiries and contact messages. Use the authorization component to restrict access to admin users only. Include filters for insurance type and inquiry status. Display inquiry and message tables/lists with key details. Provide actions to view details and update inquiry status."
+        },
+        {
+          "path": "frontend/src/components/InquiryTable.tsx",
+          "operation": "create",
+          "description": "Create inquiry table component displaying all inquiries with columns for user name (from user profile), insurance type, timestamp, status, and actions. Include filter controls for type and status. Provide row click or button to view full inquiry details. Use backend getAllInsuranceInquiries and getInsuranceInquiriesByType methods."
+        },
+        {
+          "path": "frontend/src/components/InquiryDetailsModal.tsx",
+          "operation": "create",
+          "description": "Create modal or detail view component displaying full inquiry details including all form fields, timestamp, current status, and status update controls. Allow admin to change status using backend updateInquiryStatus method."
+        },
+        {
+          "path": "frontend/src/components/ContactMessagesTable.tsx",
+          "operation": "create",
+          "description": "Create contact messages table component displaying all messages with sender name, agent, timestamp, and message preview. Use backend getAllContactMessages method."
+        },
+        {
+          "path": "frontend/src/hooks/useInsuranceInquiries.ts",
+          "operation": "create",
+          "description": "Create React Query hook for fetching insurance inquiries using backend getAllInsuranceInquiries, getInsuranceInquiriesByType, and getPendingInsuranceInquiries methods. Support filtering by type and status."
+        },
+        {
+          "path": "frontend/src/hooks/useUpdateInquiryStatus.ts",
+          "operation": "create",
+          "description": "Create React Query mutation hook for updating inquiry status using backend updateInquiryStatus method. Invalidate inquiry queries after successful update."
+        },
+        {
+          "path": "frontend/src/hooks/useContactMessages.ts",
+          "operation": "create",
+          "description": "Create React Query hook for fetching contact messages using backend getAllContactMessages method."
+        },
+        {
+          "path": "frontend/src/components/AdminGuard.tsx",
+          "operation": "create",
+          "description": "Create admin guard component that checks if current user has admin role using backend isCallerAdmin method. Display access denied message or redirect if not admin. Use the authorization component's access control guidance for implementation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Apply professional trustworthy theme with navigation and footer",
+      "acceptanceCriteria": [
+        "Consistent color palette and typography applied across all pages",
+        "Navigation bar links to Home, Plans, Contact, and Admin Dashboard",
+        "Footer is present on all pages",
+        "Layout is responsive and usable on mobile and desktop"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with professional insurance theme. Define warm neutral base colors (e.g., off-white, light beige) and deep teal accent colors. Set clean sans-serif typography (e.g., Inter, system fonts). Add utility classes for consistent spacing, borders, and shadows that convey trust and reliability."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure Tailwind theme with insurance brand colors. Add custom color palette with warm neutrals (stone, slate) and deep teal primary colors. Configure typography with clean sans-serif font families. Ensure responsive breakpoints are properly set."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create layout component that wraps all pages with navigation bar and footer. Include the hero banner image at frontend/public/assets/generated/hero-banner.dim_1200x400.png on the home section. Navigation should link to Home (InquiryPage), Plans (PlansPage), Contact (ContactPage), and Admin (AdminDashboardPage with admin guard). Include login/logout button using the authorization component. Footer should display basic site info and links."
+        },
+        {
+          "path": "frontend/src/components/NavigationBar.tsx",
+          "operation": "create",
+          "description": "Create navigation bar component with links to Home, Plans, Contact, and Admin Dashboard. Include login/logout button using the authorization component's LoginButton pattern. Style with professional trustworthy theme. Make responsive for mobile and desktop."
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "create",
+          "description": "Create footer component with basic site information, copyright, and links. Style consistently with professional theme."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Update App component to use Layout wrapper and configure routing for all pages: InquiryPage (home route), PlansPage, ContactPage, and AdminDashboardPage. Ensure AdminDashboardPage is wrapped with AdminGuard. Integrate Internet Identity authentication using the authorization component. Include user profile setup modal following the authorization component's profile setup guidance to prevent modal flash."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Create profile setup modal component that prompts new users to enter their name and email on first login. Use the authorization component's guidance for preventing modal flash. Integrate with backend saveCallerUserProfile method. Show only when user is authenticated but has no profile."
+        },
+        {
+          "path": "frontend/src/hooks/useUserProfile.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for user profile management using backend getCallerUserProfile, saveCallerUserProfile, and getUserProfile methods. Follow the authorization component's pattern for preventing profile setup modal flash. Include both query and mutation hooks."
+        }
+      ]
+    }
+  ]
+}

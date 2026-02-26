@@ -1,0 +1,22 @@
+{
+  "frontend/src/index.css": "Global styles with a professional deep teal and warm cream OKLCH color system, Inter/Merriweather fonts, and custom utility classes for the insurance brand theme.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with teal brand colors, Inter/Merriweather font families, custom shadows, and animation keyframes.",
+  "frontend/src/hooks/useQueries.ts": "Centralized React Query hooks for all backend operations; fixes the `Agent` type conflict by casting `actor.getAllAgents()` through `unknown` to `BackendAgent[]`, resolving the ambiguity between `@dfinity/agent`'s `Agent` and the backend's `Agent` type.",
+  "frontend/src/App.tsx": "Main app component with TanStack Router setup, ThemeProvider, profile setup modal logic, and route tree for Home, Plans, Contact, and Admin pages.",
+  "frontend/src/components/Layout.tsx": "Shell layout component wrapping all pages with NavigationBar and Footer via TanStack Router's Outlet.",
+  "frontend/src/components/NavigationBar.tsx": "Responsive sticky navigation bar with logo, nav links, login/logout button, user profile display, and mobile hamburger menu.",
+  "frontend/src/components/Footer.tsx": "Professional footer with brand info, quick links, coverage types, copyright, and caffeine.ai attribution with UTM tracking.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog for first-time login users to set their name and email, preventing flash by using proper auth state checks.",
+  "frontend/src/components/AdminGuard.tsx": "Route guard component that checks admin status and shows appropriate login/access-denied screens for non-admin users.",
+  "frontend/src/components/InsuranceInquiryForm.tsx": "Dynamic insurance inquiry form with type selector (Health/Auto/Life/Home), type-specific fields, validation, and success confirmation.",
+  "frontend/src/components/PlanCard.tsx": "Insurance plan card displaying plan name, type badge, coverage amount, features list, monthly premium, and a \"Get Quote\" CTA that navigates to the inquiry form.",
+  "frontend/src/components/AgentCard.tsx": "Agent profile card component updated to import and use `Agent as BackendAgent` from the backend to resolve the type name collision with `@dfinity/agent`.",
+  "frontend/src/components/ContactMessageForm.tsx": "Contact message form component updated to use `Agent as BackendAgent` import alias, eliminating the type conflict with the dfinity agent library.",
+  "frontend/src/components/InquiryTable.tsx": "Admin inquiry table with type/status filters, sortable columns, and view details action buttons.",
+  "frontend/src/components/InquiryDetailsModal.tsx": "Modal showing full inquiry details with status update controls using the backend updateInquiryStatus method.",
+  "frontend/src/components/ContactMessagesTable.tsx": "Admin contact messages table updated to use `Agent as BackendAgent` import alias so the `agents` prop type no longer conflicts with the dfinity `Agent` type.",
+  "frontend/src/pages/HomePage.tsx": "Home page with hero banner, trust stats, step-by-step guide, insurance type icons, and the inquiry form with URL-based pre-selection support.",
+  "frontend/src/pages/PlansPage.tsx": "Plans browsing page with tabbed filtering by insurance type and a responsive grid of PlanCard components.",
+  "frontend/src/pages/ContactPage.tsx": "Contact page updated to use `Agent as BackendAgent` import alias, fixing all three TypeScript errors related to `.length`, `.map`, and prop type mismatches on the agents array.",
+  "frontend/src/pages/AdminDashboardPage.tsx": "Admin dashboard page updated to pass the correctly-typed `agents` array (now inferred as `BackendAgent[]`) to `ContactMessagesTable`, resolving the prop type mismatch error."
+}

@@ -1,0 +1,124 @@
+{
+  "kind": "build_request",
+  "title": "Insurance Inquiry Website with Admin Dashboard",
+  "projectName": "InsureEase",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a multi-type insurance inquiry and quote request form supporting Health, Auto, Life, and Home insurance. Each insurance type should have relevant fields (e.g., age, coverage amount, vehicle info, property details). Users should be able to submit the form, and submissions must be saved in the backend with a timestamp, insurance type, and all form fields.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Multi-type insurance inquiry/quote request form (health, auto, life, home)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can select from Health, Auto, Life, or Home insurance types",
+        "Form fields change dynamically based on selected insurance type",
+        "All required fields are validated before submission",
+        "Submitted inquiry is saved in the backend with timestamp, type, and all fields",
+        "User sees a success confirmation message after submitting"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create a Browse Insurance Plans page that displays available plans for each insurance type (Health, Auto, Life, Home). Each plan card should show plan name, key features/coverage highlights, and a call-to-action button to start an inquiry for that plan.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Browse insurance plans page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Plans are filterable or grouped by insurance type (Health, Auto, Life, Home)",
+        "Each plan card displays plan name, coverage highlights, and a CTA button",
+        "Clicking the CTA button pre-fills the inquiry form with the selected plan and insurance type",
+        "Plans data is stored in the backend and rendered on the frontend"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create a Contact an Agent section that displays agent contact information (name, specialization, phone, email) and includes a simple contact message form allowing users to send a message to an agent. Contact messages should be saved in the backend.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Contact an agent section"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Agent contact information is displayed (name, specialization, contact details)",
+        "Contact form includes fields for user name, email, subject, and message",
+        "Submitted contact messages are saved in the backend with timestamp",
+        "User sees a confirmation message after submitting the contact form"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create an Admin/Agent Dashboard page (accessible via a protected route) that lists all submitted insurance inquiries and contact messages. The dashboard should allow filtering by insurance type and inquiry status, and allow the admin to update the status of an inquiry (e.g., Pending, In Review, Resolved).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Admin/agent dashboard to view and manage saved inquiries"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dashboard displays all submitted inquiries with key details (name, type, date, status)",
+        "Dashboard displays all contact messages",
+        "Admin can filter inquiries by insurance type and status",
+        "Admin can click an inquiry to view full details",
+        "Admin can update the status of an inquiry (Pending, In Review, Resolved)",
+        "Status updates are persisted in the backend"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Apply a professional, trustworthy visual theme across the entire site. Use a clean, modern design with a warm neutral and deep teal color palette, clear sans-serif typography, and a layout that conveys reliability and professionalism. Include a navigation bar with links to all main pages (Home, Plans, Contact, Admin) and a footer with basic site info.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Website for insurance inquiry"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Consistent color palette and typography applied across all pages",
+        "Navigation bar links to Home, Plans, Contact, and Admin Dashboard",
+        "Footer is present on all pages",
+        "Layout is responsive and usable on mobile and desktop"
+      ]
+    }
+  ],
+  "constraints": [
+    "All backend logic must reside in a single Motoko actor in backend/main.mo",
+    "Do not integrate external email or SMS services for notifications",
+    "Admin access should be handled with a simple client-side route guard, no external auth provider"
+  ],
+  "nonGoals": [
+    "Real-time chat or live agent messaging",
+    "Payment processing or premium calculation",
+    "Integration with external insurance provider APIs",
+    "Internet Identity or wallet-based authentication"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Professional insurance hero banner with abstract shapes representing protection and security, warm neutral tones with deep teal accents (hero-banner.dim_1200x400.png)",
+      "Insurance type icon set showing health heart-cross, auto car, life shield-person, home house in flat modern teal style (insurance-icons.dim_512x128.png)"
+    ],
+    "edits": []
+  }
+}

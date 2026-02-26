@@ -1,0 +1,99 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-26T18:53:58.841Z",
+  "summary": "The diff implements a comprehensive insurance inquiry website with most requirements covered. The frontend includes all major pages (Home, Plans, Contact, Admin), navigation, footer, inquiry form, plan cards, agent cards, contact form, admin dashboard with filtering and status updates, and a professional teal theme. The backend (main.mo) handles inquiries, plans, agents, contact messages, and status management. However, several specific acceptance criteria have gaps or concerns worth flagging.",
+  "missing_requirements": [
+    {
+      "requirement": "Contact form includes fields for user name, email, subject, and message as explicit form inputs",
+      "reason": "The ContactMessageForm auto-fills name/email from the user profile rather than providing standalone input fields for name and email. The spec requires the contact form to include explicit fields for user name, email, subject, and message.",
+      "evidence": [
+        "frontend/src/components/ContactMessageForm.tsx"
+      ]
+    },
+    {
+      "requirement": "Plans data is stored in the backend and rendered on the frontend",
+      "reason": "The backend has getAllInsurancePlans and getInsurancePlansByType but no visible seed or initialization logic populating plans. The insurancePlans map starts empty with no admin add-plan function visible in the truncated diff, meaning plans may not actually be stored or displayed.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "requirement": "Images required: hero-banner.dim_1200x400.png and insurance-icons.dim_512x128.png",
+      "reason": "No image files are included in the diff. The build request explicitly required these two image assets.",
+      "evidence": []
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity wallet-based authentication is fully integrated with login/logout, identity management, and profile setup modal",
+      "reason": "The build request explicitly listed Internet Identity or wallet-based authentication as a non-goal. The implementation uses useInternetIdentity, AuthClient, and DelegationIdentity throughout.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/components/NavigationBar.tsx"
+      ]
+    },
+    {
+      "description": "Admin access is guarded via backend Principal-based access control using MixinAuthorization and AccessControl modules, not a simple client-side route guard",
+      "reason": "The constraint states admin access should be handled with a simple client-side route guard with no external auth provider. The implementation performs server-side admin verification via the backend.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/components/AdminGuard.tsx",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "User profile system with name and email stored per Principal, with a profile setup modal on first login",
+      "reason": "A user profile creation flow was not requested in the build requirements. The spec only covers insurance inquiries, plans, contact messages, and admin dashboard.",
+      "evidence": [
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "backend/main.mo",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "description": "Monthly premium displayed on plan cards as a monetary value",
+      "reason": "Payment processing or premium calculation is explicitly listed as a non-goal in the build request, yet plan cards display a monthly premium amount.",
+      "evidence": [
+        "frontend/src/components/PlanCard.tsx",
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AdminGuard.tsx",
+    "frontend/src/components/AgentCard.tsx",
+    "frontend/src/components/ContactMessageForm.tsx",
+    "frontend/src/components/ContactMessagesTable.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/InquiryDetailsModal.tsx",
+    "frontend/src/components/InquiryTable.tsx",
+    "frontend/src/components/InsuranceInquiryForm.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/NavigationBar.tsx",
+    "frontend/src/components/PlanCard.tsx",
+    "frontend/src/components/ProfileSetupModal.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AdminDashboardPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/PlansPage.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

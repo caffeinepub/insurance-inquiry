@@ -1,0 +1,113 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-multi-type-insurance-inquiry-and-quote-request-form-supporting-health-auto-life-and-home-insurance-each-insurance-type-should-have-relevant-fields-e-g-age-coverage-amount-vehicle-info-property-details-users-should-be-able-to-submit-the-form-and-submissions-must-be-saved-in-the-backend-with-a-timestamp-insurance-type-and-all-form-fields",
+      "featureTitle": "Create a multi-type insurance inquiry and quote request form supporting Health, Auto, Life, and Home insurance. Each insurance type should have relevant fields (e.g., age, coverage amount, vehicle info, property details). Users should be able to submit the form, and submissions must be saved in the backend with a timestamp, insurance type, and all form fields.",
+      "files": [
+        "frontend/src/components/InsuranceInquiryForm.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-browse-insurance-plans-page-that-displays-available-plans-for-each-insurance-type-health-auto-life-home-each-plan-card-should-show-plan-name-key-features-coverage-highlights-and-a-call-to-action-button-to-start-an-inquiry-for-that-plan",
+      "featureTitle": "Create a Browse Insurance Plans page that displays available plans for each insurance type (Health, Auto, Life, Home). Each plan card should show plan name, key features/coverage highlights, and a call-to-action button to start an inquiry for that plan.",
+      "files": [
+        "frontend/src/components/PlanCard.tsx",
+        "frontend/src/pages/PlansPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-contact-an-agent-section-that-displays-agent-contact-information-name-specialization-phone-email-and-includes-a-simple-contact-message-form-allowing-users-to-send-a-message-to-an-agent-contact-messages-should-be-saved-in-the-backend",
+      "featureTitle": "Create a Contact an Agent section that displays agent contact information (name, specialization, phone, email) and includes a simple contact message form allowing users to send a message to an agent. Contact messages should be saved in the backend.",
+      "files": [
+        "frontend/src/components/AgentCard.tsx",
+        "frontend/src/components/ContactMessageForm.tsx",
+        "frontend/src/pages/ContactPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-an-admin-agent-dashboard-page-accessible-via-a-protected-route-that-lists-all-submitted-insurance-inquiries-and-contact-messages-the-dashboard-should-allow-filtering-by-insurance-type-and-inquiry-status-and-allow-the-admin-to-update-the-status-of-an-inquiry-e-g-pending-in-review-resolved",
+      "featureTitle": "Create an Admin/Agent Dashboard page (accessible via a protected route) that lists all submitted insurance inquiries and contact messages. The dashboard should allow filtering by insurance type and inquiry status, and allow the admin to update the status of an inquiry (e.g., Pending, In Review, Resolved).",
+      "files": [
+        "frontend/src/components/AdminGuard.tsx",
+        "frontend/src/components/ContactMessagesTable.tsx",
+        "frontend/src/components/InquiryDetailsModal.tsx",
+        "frontend/src/components/InquiryTable.tsx",
+        "frontend/src/pages/AdminDashboardPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-professional-trustworthy-visual-theme-across-the-entire-site-use-a-clean-modern-design-with-a-warm-neutral-and-deep-teal-color-palette-clear-sans-serif-typography-and-a-layout-that-conveys-reliability-and-professionalism-include-a-navigation-bar-with-links-to-all-main-pages-home-plans-contact-admin-and-a-footer-with-basic-site-info",
+      "featureTitle": "Apply a professional, trustworthy visual theme across the entire site. Use a clean, modern design with a warm neutral and deep teal color palette, clear sans-serif typography, and a layout that conveys reliability and professionalism. Include a navigation bar with links to all main pages (Home, Plans, Contact, Admin) and a footer with basic site info.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Footer.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/NavigationBar.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

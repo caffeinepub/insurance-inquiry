@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Insurance inquiry website with multiple insurance types (health, auto, life, home), inquiry/quote request forms, plan browsing, agent contact, and admin/agent dashboard to view saved inquiries.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Professional insurance hero banner with abstract shapes representing protection and security, warm neutral tones with deep teal accents (hero-banner.dim_1200x400.png)\n- Insurance type icon set showing health heart-cross, auto car, life shield-person, home house in flat modern teal style (insurance-icons.dim_512x128.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-multi-type-insurance-inquiry-and-quote-request-form-supporting-health-auto-life-and-home-insurance-each-insurance-type-should-have-relevant-fields-e-g-age-coverage-amount-vehicle-info-property-details-users-should-be-able-to-submit-the-form-and-submissions-must-be-saved-in-the-backend-with-a-timestamp-insurance-type-and-all-form-fields",
+      "title": "Create a multi-type insurance inquiry and quote request form supporting Health, Auto, Life, and Home insurance. Each insurance type should have relevant fields (e.g., age, coverage amount, vehicle info, property details). Users should be able to submit the form, and submissions must be saved in the backend with a timestamp, insurance type, and all form fields.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-browse-insurance-plans-page-that-displays-available-plans-for-each-insurance-type-health-auto-life-home-each-plan-card-should-show-plan-name-key-features-coverage-highlights-and-a-call-to-action-button-to-start-an-inquiry-for-that-plan",
+      "title": "Create a Browse Insurance Plans page that displays available plans for each insurance type (Health, Auto, Life, Home). Each plan card should show plan name, key features/coverage highlights, and a call-to-action button to start an inquiry for that plan.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-contact-an-agent-section-that-displays-agent-contact-information-name-specialization-phone-email-and-includes-a-simple-contact-message-form-allowing-users-to-send-a-message-to-an-agent-contact-messages-should-be-saved-in-the-backend",
+      "title": "Create a Contact an Agent section that displays agent contact information (name, specialization, phone, email) and includes a simple contact message form allowing users to send a message to an agent. Contact messages should be saved in the backend.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-an-admin-agent-dashboard-page-accessible-via-a-protected-route-that-lists-all-submitted-insurance-inquiries-and-contact-messages-the-dashboard-should-allow-filtering-by-insurance-type-and-inquiry-status-and-allow-the-admin-to-update-the-status-of-an-inquiry-e-g-pending-in-review-resolved",
+      "title": "Create an Admin/Agent Dashboard page (accessible via a protected route) that lists all submitted insurance inquiries and contact messages. The dashboard should allow filtering by insurance type and inquiry status, and allow the admin to update the status of an inquiry (e.g., Pending, In Review, Resolved).",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-professional-trustworthy-visual-theme-across-the-entire-site-use-a-clean-modern-design-with-a-warm-neutral-and-deep-teal-color-palette-clear-sans-serif-typography-and-a-layout-that-conveys-reliability-and-professionalism-include-a-navigation-bar-with-links-to-all-main-pages-home-plans-contact-admin-and-a-footer-with-basic-site-info",
+      "title": "Apply a professional, trustworthy visual theme across the entire site. Use a clean, modern design with a warm neutral and deep teal color palette, clear sans-serif typography, and a layout that conveys reliability and professionalism. Include a navigation bar with links to all main pages (Home, Plans, Contact, Admin) and a footer with basic site info.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Multi-type insurance inquiry/quote request form (health, auto, life, home)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Browse insurance plans page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Contact an agent section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Admin/agent dashboard to view and manage saved inquiries",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Insurance Inquiry Website",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
